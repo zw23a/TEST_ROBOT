@@ -64,8 +64,5 @@ Reference
 
  
 
-Problem: 
-
-The bump Button has a challenging time triggering simultaneously, so we are trying to find a method to solve this problem. 
 
  

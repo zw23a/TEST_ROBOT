@@ -2,49 +2,45 @@
 
 Preparation: 
 
- 3PI+ robot assemble (raspberry pi based)  https://www.pololu.com/category/300/3pi-plus-2040-robot  
+ 1. 3PI+ robot assemble (raspberry pi based)  https://www.pololu.com/category/300/3pi-plus-2040-robot  
 
- 4 AAA batteries  (Better chargeable)
+ 2. 4 AAA batteries  (Better chargeable)  
 
  -Running test incoming (Testing for energy consumption) 
 
- Type C to USB or Type C connection cable   
+ 3. Type C to USB or Type C connection cable   
 
- Robot table  
+ 4. Robot table  
 
 Programmable device  
 
- GitHub for 3PI+ robots (library and example) --Python  https://github.com/pololu/pololu-3pi-2040-robot  
+ 1. GitHub for 3PI+ robots (library and example) --Python  https://github.com/pololu/pololu-3pi-2040-robot  
 
- Based on Micropython  Suggested program software –Thorny  
+ 2. Based on Micropython  Suggested program software –Thorny  
 
- Using Type C to connect to computer  
+    Using Type C to connect to computer  
 
- Modify and learn from library to write own code to control the robot (in progress) 
+ 3. Modify and learn from library to write own code to control the robot (in progress) 
 
 Modification possibility  
 
- Pin in/out and power distribution  https://www.pololu.com/file/0J1941/3pi-2040-control-board-pinout.pdf  
+ 1. Pin in/out and power distribution  https://www.pololu.com/file/0J1941/3pi-2040-control-board-pinout.pdf  
 
- Soldering system  
+ 2. Soldering system  
 
-  Pin header strip 
+    Pin header strip   Female /male https://a.co/d/gsYvQIv  
 
-  Female /male https://a.co/d/gsYvQIv  
-
-  Jump wire  
-
-  Female to male / female to male depend on the strip choice  https://a.co/d/8r7AwCd  https://a.co/d/71JYoCn  
+ 3. Jump wire  Female to male / female to male depend on the strip choice  https://a.co/d/8r7AwCd  https://a.co/d/71JYoCn  
  
-  Soldering wire https://a.co/d/aK3AR76  
+ 4. Soldering wire https://a.co/d/aK3AR76  
 
- Sensor or additional module  
+Sensor or additional module  
 
-  Wireless module  
+ 1. Wireless module  
 
-  Camera (possible) 
+ 2. Camera (possible) 
 
-  Ultrasonic sensor –distance sensor (possible) 
+ 3. Ultrasonic sensor –distance sensor (possible) 
 
 Mount problem (working on) 
 

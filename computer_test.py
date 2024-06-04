@@ -4,7 +4,7 @@ import threading
 import time
 
 # Configure the serial port
-ser = serial.Serial('COM1', 57600)  # Replace 'COM1' with the correct port for your Wixel module
+ser = serial.Serial('COM4', 9600)  # Replace 'COM1' with the correct port for your Wixel module
 # ser = serial.Serial('/dev/ttyACM0', 9600)
 
 # Function to send data

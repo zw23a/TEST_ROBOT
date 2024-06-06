@@ -4,6 +4,7 @@ import threading
 import time
 
 # Configure the serial port
+# sudo chmod a+rw /dev/ttyACM0
 ser = serial.Serial('COM4', 9600)  # Replace 'COM1' with the correct port for your Wixel module
 # ser = serial.Serial('/dev/ttyACM0', 9600)
 

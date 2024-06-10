@@ -123,6 +123,7 @@ def follow_line():
 
 def check_bumpers():
     global max_speed, run_motors
+    bump_sensor.read()
     if bump_sensors.left_is_pressed() or bump_sensors.right_is_pressed():
         # Reduce speed to half
         current_speed = max_speed // 2

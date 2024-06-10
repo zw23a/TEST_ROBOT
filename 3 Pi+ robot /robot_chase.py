@@ -118,24 +118,27 @@ def follow_line():
 
         if run_motors:
             motors.set_speeds(left, right)
+            
         else:
             motors.off()
-
+            
 def check_bumpers():
     global max_speed, run_motors
+    max_speed_local = max_speed
     bump_sensor.read()
     if bump_sensors.left_is_pressed() or bump_sensors.right_is_pressed():
         # Reduce speed to half
-        current_speed = max_speed // 2
-        motors.set_speeds(current_speed, current_speed)
+        max_speed = max_speed // 2
+        #motors.set_speeds(current_speed, current_speed)
         time.sleep(1)
         # Gradually increase speed back to max
         while current_speed < max_speed:
             time.sleep(1)  # Adjust the sleep time to control the speed increase rate
-            current_speed += 50
-            if current_speed > max_speed:
-                current_speed = max_speed
-            motors.set_speeds(current_speed, current_speed)
+            max_speed += 50
+            if max_speed > max_speed_local:
+                max_speed = max_speed_local
+            #motors.set_speeds(current_speed, current_speed)
+    follow_line()
 
 _thread.start_new_thread(follow_line, ())
 time.sleep_ms(1)

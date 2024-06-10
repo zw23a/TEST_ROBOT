@@ -132,8 +132,8 @@ def check_bumpers():
         #motors.set_speeds(current_speed, current_speed)
         time.sleep(1)
         # Gradually increase speed back to max
-        while current_speed < max_speed:
-            time.sleep(1)  # Adjust the sleep time to control the speed increase rate
+        while max_speed < max_speed_local:
+            #time.sleep(1)  # Adjust the sleep time to control the speed increase rate
             max_speed += 50
             if max_speed > max_speed_local:
                 max_speed = max_speed_local
@@ -145,7 +145,7 @@ time.sleep_ms(1)
 
 while True:
     t = time.ticks_ms()
-    check_bumpers()  # Check bumpers in the main loop
+    #check_bumpers()  # Check bumpers in the main loop
     if time.ticks_diff(t, last_update_ms) > 100:
         last_update_ms = t
         update_display()

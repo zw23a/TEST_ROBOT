@@ -138,7 +138,7 @@ def check_bumpers():
             if max_speed > max_speed_local:
                 max_speed = max_speed_local
             #motors.set_speeds(current_speed, current_speed)
-    follow_line()
+    
 
 _thread.start_new_thread(follow_line, ())
 time.sleep_ms(1)

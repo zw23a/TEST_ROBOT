@@ -1,29 +1,29 @@
 # pip install keyboard
 import serial
-import keyboard
+import time
 
-ser = serial.Serial('COM3', 57600) 
+# 配置串口
+port = '/dev/ttyUSB0'  # 根据你的系统调整端口名称（Windows 通常是 COMx）
+baud_rate = 9600
 
+ser = serial.Serial(port, baud_rate)
+
+# 发送控制命令函数
 def send_command(command):
     ser.write(command.encode())
-    print(f"Sent: {command}")
+    print(f'Sent: {command}')
 
-def main():
-    print("Control the robot with WASD keys. Press 'q' to quit.")
+# 示例：发送一系列控制命令
+try:
     while True:
-        if keyboard.is_pressed('w'):
-            send_command('FORWARD')
-        elif keyboard.is_pressed('s'):
-            send_command('BACKWARD')
-        elif keyboard.is_pressed('a'):
-            send_command('LEFT')
-        elif keyboard.is_pressed('d'):
-            send_command('RIGHT')
-        elif keyboard.is_pressed('q'):
-            print("Exiting...")
-            break
+        command = input("Enter command (F: Forward, B: Backward, L: Left, R: Right, S: Stop): ")
+        if command in ['F', 'B', 'L', 'R', 'S']:
+            send_command(command)
         else:
-            send_command('STOP')
-        keyboard.wait('any', suppress=False)  # Wait for any key press
+            print("Invalid command. Please enter F, B, L, R, or S.")
+except KeyboardInterrupt:
+    print("Exiting...")
+finally:
+    ser.close()
 
 

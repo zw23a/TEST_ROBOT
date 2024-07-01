@@ -7,7 +7,7 @@ bump_sensors = robot.BumpSensors()
 motors = robot.Motors()
 display = robot.Display()
 edition = editions.select()
-
+yellow_led = robot.YellowLED()
 if edition == "Standard":
     max_speed = 1500
     turn_time = 250
@@ -22,32 +22,25 @@ elif edition == "Hyper":
 
 
 #  UART，RX  5，TX  4 (adjust by real)
-uart = UART(0, baudrate=9600, tx=Pin(4), rx=Pin(5))
+uart = UART(0, baudrate=9600, tx=Pin(28), rx=Pin(29))
+yellow_led.on()
+display.fill(0)
+display.text("Ready", 80, 0)
+display.show()
 
-
-
-
-def execute_command(command):
-    if command == "FORWARD":
-        motors.set_speeds(max_speed,max_speed)
-
-    elif command == "BACKWARD":
-        motors.set_speeds(-max_speed,max_speed)
-    elif command == "LEFT":
-        motors.set_speeds(0,max_speed/2)
-    elif command == "RIGHT":
-        motors.set_speeds(max_speed/2,0)
-    elif command == "STOP":
-        motors.set_speeds(0,0)
-    else:
-        print(f"Unknown command: {command}")
-
-while True:
-    if uart.any():
-        command = uart.read().decode().strip()
-        print(f"Received: {command}")
-        execute_command(command)
-    time.sleep(0.1)
-
-
-
+try:
+    while True:
+        if uart.any():
+            command = uart.read(1).decode()
+            if command == 'F':
+                motors.set_speeds(max_speed,max_speed)
+            elif command == 'B':
+                motors.set_speeds(-max_speed,-max_speed)
+            elif command == 'L':
+                motors.set_speeds(0, max_speed/2)
+            elif command == 'R':
+                motors.set_speeds(max_speed/2, 0)
+            elif command == 'S':
+                motors.set_speeds(0, 0)  
+except KeyboardInterrupt:
+    print("Exiting...")

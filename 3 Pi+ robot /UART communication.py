@@ -48,7 +48,7 @@ def debug_uart(uart):
         print("Bytes read from UART:", repr(bytes_read))
 
 # Example usage
-uart = initialize_uart('/dev/ttyUSB0')  # Replace with your actual serial port
+uart = initialize_uart('COM5')  # Replace with your actual serial port
 
 while True:
     debug_uart(uart)

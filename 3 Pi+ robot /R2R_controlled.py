@@ -39,7 +39,7 @@ display.show()
 time.sleep(1)
 cmd1 = b'x01' #stright
 cmd2 = b'x00' #right
-
+cmd3 = b'x02' #stop
 while True:
     command  = read_command(uart)
     if command == cmd1:

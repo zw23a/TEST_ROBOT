@@ -24,7 +24,7 @@ elif edition == "Hyper":
 
 def initialize_uart():
     # Initialize UART with appropriate TX and RX pins
-    uart = UART(1, baudrate=9600, tx=Pin(28), rx=Pin(29))  # Adjust TX and RX pins as necessary
+    uart = UART(0, baudrate=9600, tx=Pin(28), rx=Pin(29))  # Adjust TX and RX pins as necessary
     return uart
 
 def send_command(uart, command):

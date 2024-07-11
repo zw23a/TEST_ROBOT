@@ -65,7 +65,7 @@ while True:
     display.show()
     send_command(uart,cmd2)
     motors.set_speeds(1000,-1000)
-    time.sleep(2.4)
+    time.sleep(2.5)
 
     #stop
     yellow_led.off()

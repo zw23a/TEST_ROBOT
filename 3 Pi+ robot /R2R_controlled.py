@@ -57,7 +57,7 @@ while True:
         #stop 
         yellow_led.off()
         motors.set_speeds(0, 0)
-    if command ==cmd3:
+    if command ==cmd2:
         #turn
         display.fill(0)
         display.text("Right", 0, 0)

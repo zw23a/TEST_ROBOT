@@ -45,21 +45,22 @@ cmd3 = b'x02' #stop
 while True:
     #straight
     yellow_led.on()
-    send_command(uart,cmd1)
     display.fill(0)
     display.text("Straight", 0, 0)
     display.show()
-    motors.set_speeds(max_speed,max_speed)
+    motors.set_speeds(max_speed,max_speed) 
+    send_command(uart,cmd1)
     time.sleep(3)
 
     #stop and turn
     yellow_led.off()
-    send_command(uart,cmd2)
     motors.set_speeds(0, 0)
+    send_command(uart,cmd3)
     display.fill(0)
     display.text("Right", 0, 0)
     display.show()
     motors.set_speeds(1000,-1000)
+    send_command(uart,cmd2)
     time.sleep(2.4)
 
     

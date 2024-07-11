@@ -60,6 +60,6 @@ while True:
     display.text("Right", 0, 0)
     display.show()
     motors.set_speeds(1000,-1000)
-    time.sleep(2.3)
+    time.sleep(2.4)
 
     

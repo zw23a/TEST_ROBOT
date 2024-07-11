@@ -27,39 +27,41 @@ def initialize_uart():
     uart = UART(0, baudrate=9600, tx=Pin(28), rx=Pin(29))  # Adjust TX and RX pins as necessary
     return uart
 
-def send_command(uart, command):
-    uart.write(command)
-    #print("Command sent:", repr(command))
-    display.fill(0)
-    display.text(repr(command),88,0)
-    display.show()
+def read_command(uart):
+    if uart.any():
+        command = uart.read(100)  # Adjust the number of bytes as needed
+        return command
+    return None
 
 uart = initialize_uart()
 display.fill(0)
-
 display.show()
 time.sleep(1)
 cmd1 = b'x01' #stright
 cmd2 = b'x00' #right
-cmd3 = b'x02' #stop
-while True:
-    #straight
-    yellow_led.on()
-    send_command(uart,cmd1)
-    display.fill(0)
-    display.text("Straight", 0, 0)
-    display.show()
-    motors.set_speeds(max_speed,max_speed)
-    time.sleep(3)
 
-    #stop and turn
-    yellow_led.off()
-    send_command(uart,cmd2)
-    motors.set_speeds(0, 0)
-    display.fill(0)
-    display.text("Right", 0, 0)
-    display.show()
-    motors.set_speeds(1000,-1000)
-    time.sleep(2)
+while True:
+    command  = read_command(uart)
+    if command == cmd1:
+
+        #straight
+        yellow_led.on()
+        display.fill(0)
+        display.text("Straight", 0, 0)
+        display.show()
+        motors.set_speeds(max_speed,max_speed)
+        
+        
+    if command ==cmd2:
+
+        #stop and turn
+        yellow_led.off()
+        motors.set_speeds(0, 0)
+        display.fill(0)
+        display.text("Right", 0, 0)
+        display.show()
+        motors.set_speeds(1000,-1000)
+        
 
     
+

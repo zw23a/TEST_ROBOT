@@ -52,11 +52,13 @@ while True:
         motors.set_speeds(max_speed,max_speed)
         
         
-    if command ==cmd2:
+    if command ==cmd3:
 
-        #stop and turn
+        #stop 
         yellow_led.off()
         motors.set_speeds(0, 0)
+    if command ==cmd3:
+        #turn
         display.fill(0)
         display.text("Right", 0, 0)
         display.show()

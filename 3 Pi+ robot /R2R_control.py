@@ -30,17 +30,15 @@ def initialize_uart():
 def send_command(uart, command):
     uart.write(command)
     #print("Command sent:", repr(command))
-    display.fill(0)
-    display.text(repr(command),88,0)
-    display.show()
+
 
 uart = initialize_uart()
 display.fill(0)
 
 display.show()
 time.sleep(1)
-cmd1 = b'x01' #stright
-cmd2 = b'x00' #right
+cmd1 = b'x00' #stright
+cmd2 = b'x01' #right
 cmd3 = b'x02' #stop
 while True:
     #straight
@@ -52,10 +50,15 @@ while True:
     send_command(uart,cmd1)
     time.sleep(3)
 
-    #stop and turn
+    #stop
     yellow_led.off()
+    display.fill(0)
+    display.text("Stop", 0, 0)
+    display.show()
     motors.set_speeds(0, 0)
     send_command(uart,cmd3)
+    time.sleep(1)
+    
     display.fill(0)
     display.text("Right", 0, 0)
     display.show()

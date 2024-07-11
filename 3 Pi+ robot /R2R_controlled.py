@@ -37,8 +37,8 @@ uart = initialize_uart()
 display.fill(0)
 display.show()
 time.sleep(1)
-cmd1 = b'x01' #stright
-cmd2 = b'x00' #right
+cmd1 = b'x00' #stright
+cmd2 = b'x01' #right
 cmd3 = b'x02' #stop
 while True:
     command  = read_command(uart)

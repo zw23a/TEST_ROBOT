@@ -46,8 +46,8 @@ while True:
     display.fill(0)
     display.text("Straight", 0, 0)
     display.show()
-    motors.set_speeds(max_speed,max_speed) 
     send_command(uart,cmd1)
+    motors.set_speeds(max_speed,max_speed) 
     time.sleep(3)
 
     #stop
@@ -55,15 +55,24 @@ while True:
     display.fill(0)
     display.text("Stop", 0, 0)
     display.show()
-    motors.set_speeds(0, 0)
     send_command(uart,cmd3)
+    motors.set_speeds(0, 0)
     time.sleep(1)
-    
+
+    #turn
     display.fill(0)
     display.text("Right", 0, 0)
     display.show()
-    motors.set_speeds(1000,-1000)
     send_command(uart,cmd2)
+    motors.set_speeds(1000,-1000)
     time.sleep(2.4)
 
+    #stop
+    yellow_led.off()
+    display.fill(0)
+    display.text("Stop", 0, 0)
+    display.show()
+    send_command(uart,cmd3)
+    motors.set_speeds(0, 0)
+    time.sleep(1)    
     

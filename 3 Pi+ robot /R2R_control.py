@@ -41,7 +41,7 @@ display.show()
 time.sleep(1)
 cmd1 = b'x01' #stright
 cmd2 = b'x00' #right
-
+cmd3 = b'x02' #stop
 while True:
     #straight
     yellow_led.on()
@@ -50,7 +50,7 @@ while True:
     display.text("Straight", 0, 0)
     display.show()
     motors.set_speeds(max_speed,max_speed)
-    time.sleep(turn_time/200)
+    time.sleep(3)
 
     #stop and turn
     yellow_led.off()
@@ -60,6 +60,6 @@ while True:
     display.text("Right", 0, 0)
     display.show()
     motors.set_speeds(1000,-1000)
-    time.sleep(turn_time/125)
+    time.sleep(2)
 
     

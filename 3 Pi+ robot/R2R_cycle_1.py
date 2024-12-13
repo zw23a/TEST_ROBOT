@@ -48,8 +48,6 @@ def read_command(uart, buffer):
         del buffer[:2]
         if target_id == ROBOT_ID:
             return cmd
-        else:
-            continue
     return None
 
 uart = initialize_uart()

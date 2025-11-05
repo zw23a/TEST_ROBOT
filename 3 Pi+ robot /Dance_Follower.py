@@ -100,6 +100,14 @@ while True:
         motors.set_speeds(max_speed, max_speed)
         run_for(3000)
 
+    elif command == CMD_FWD_1P5S:
+        yellow_led.on()
+        display.fill(0)
+        display.text("Straight_short", 0, 0)
+        display.show()
+        motors.set_speeds(max_speed, max_speed)
+        run_for(1500)
+
     elif command == CMD_STOP_1S:
         # stop
         yellow_led.off()
@@ -110,13 +118,22 @@ while True:
         run_for(1000)
 
     elif command == CMD_BACK_3S:
-        # right turn (in place)
+       
         yellow_led.on()
         display.fill(0)
-        display.text("Right", 0, 0)
+        display.text("Back", 0, 0)
         display.show()
         motors.set_speeds(-max_speed, -max_speed)
         run_for(3000)
+    elif command == CMD_BACK_1P5S:
+        
+        yellow_led.on()
+        display.fill(0)
+        display.text("Back_short", 0, 0)
+        display.show()
+        motors.set_speeds(-max_speed, -max_speed)
+        run_for(1500)
+
 
     elif command == CMD_SWIVEL_5S:
 
@@ -141,7 +158,7 @@ while True:
         display.show()
         motors.set_speeds(-turn_speed,turn_speed)
         run_for(2500)
-
+    
     elif command == CMD_LOOP_END:
         motors.set_speeds(0,0)
         run_for(1000)

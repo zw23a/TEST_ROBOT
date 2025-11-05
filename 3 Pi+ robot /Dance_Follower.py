@@ -142,3 +142,7 @@ while True:
         motors.set_speeds(-turn_speed,turn_speed)
         run_for(2500)
 
+    elif command == CMD_LOOP_END:
+        motors.set_speeds(0,0)
+        run_for(1000)
+
